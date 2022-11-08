@@ -21,12 +21,12 @@ import EPG
 
 ### Pay with a Card
 
-- Configure your server with EPG
-- Get the `authentication_token` from the server
-- Get the `transaction_id` from the server
-- Get the `merchant_user_name` from the server
-- Get the `merchant_password` from the server
-- Get the `customer_name` from the server
+##### Configure your server with EPG to get these details:
+- `authentication_token`
+- `transaction_id`
+- `merchant_user_name`
+- `merchant_password`
+- `customer_name`
 
 #
 ### Create an object of ```EPGPaymentRequest``` with the parameters and setup the object.
@@ -60,10 +60,6 @@ Pass the `request` initiated above and initiate the payment.
 let epg = EPG(controller: self)
 epg.initiatePayment(with: request)
 ```
-
-
-#
-### You are now ready to start payment and handle EPGDelegate
 
 # Delegates
 Implement the delegate with your `ViewController` and add the delegate method to recieve the response of payment.
