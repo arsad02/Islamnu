@@ -7,11 +7,16 @@
 - The SDK offers a ready-made card payment screen.
 - Supporting dark mode.
 
+## Technical Specification
+
+- Xcode version required **14.0**
+- iOS Version must be above **13.0**
+
 ## Follow the below steps:
 
 1. Contact the EPG team to get the framework.
 2. Navigate to the General section of your Target.
-3. Drag ```EPG.framework``` file to **Frameworks, Libraries, and Embedded Content section**.
+3. Drag ```EPG.framework``` file to **Frameworks, Libraries, and Embedded Content** and set to **Embed and Sign**.
 
 ## Usage / Example
 Import the `EPG` SDK in your code
