@@ -18,6 +18,8 @@
 2. Navigate to the General section of your Target.
 3. Drag ```EPG.framework``` file to **Frameworks, Libraries, and Embedded Content** and set to **Embed and Sign**.
 
+![App Screenshot](https://github.com/arsad02/Islamnu/blob/master/Screenshot%202022-11-15%20at%2012.08.52%20PM.png)
+
 ## Usage / Example
 Import the `EPG` SDK in your code
 ```swift
