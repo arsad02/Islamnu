@@ -1,22 +1,31 @@
 # EPG SDK
 
-**EPG SDK** is a payment gateway, that provides solutions to mobile applications for card payment.
+**EPG** is a native **iOS SDK**, that allows you accept mobile payment from your customers through multiple payment methods like.
+
+- Card payments (Visa, Mastercard and AMEX).
+- Apple pay.
+- Samsung pay.
+- UAE digital wallets.
+- BNPL Providers.
+(Currently we are only supports card payments)
 
 ## Features
 
 - The SDK offers a ready-made card payment screen.
 - Supporting dark mode.
 
-## Technical Specification
+## Requirement
 
-- Xcode version required **14.0**
-- iOS Version must be above **13.0**
+- iOS 13.0
+- Swift 5.0
+- Xcode 14.0
+
 
 ## Follow the below steps:
 
 1. Contact the EPG team to get the framework.
-2. Navigate to the General section of your Target.
-3. Drag ```EPG.framework``` file to **Frameworks, Libraries, and Embedded Content** and set to **Embed and Sign**.
+2. Navigate to the **General** section of your **Target**.
+3. Drag ```EPG_v1_0.xcframework``` file to **Frameworks, Libraries, and Embedded Content** and set to **Embed and Sign**.
 
 ![App Screenshot](https://github.com/arsad02/Islamnu/blob/master/Screenshot%202022-11-15%20at%2012.08.52%20PM.png)
 
@@ -54,17 +63,18 @@ var request = EPGPaymentRequest(
               transactionId: transactionId,
               authenticationToken: authentication_token,
               customerName: customer_name,
-              callBackUrl: "https://www.google.com")
+              callBackUrl: "https://www.google.com",
+              theme: .auto)
 
  ``` 
 
 #
-### Create an object of ```EPG``` with passing your viewcontroller to navigate.
+### Create an object of ```EPGPayment``` with passing your viewcontroller to navigate.
 
 Pass the `request` initiated above and initiate the payment.
 
 ```swift                  
-let epg = EPG(controller: self)
+let epg = EPGPayment(controller: self)
 epg.initiatePayment(with: request)
 ```
 
@@ -78,8 +88,8 @@ Implement the delegate with your `ViewController` and add the delegate method to
 
 ```swift
 extension ViewController: EPGDelegate {
-    func epgPayment(delegate result: EPGResult) {
-        if !result.success, let errorMsg = result.errorMessage {
+    func epgPayment(delegate result: EPGResult?) {
+        if !(result?.success ?? false),let errorMsg = result?.errorMessage {
             //Failed
         } else {
            //Success
@@ -87,6 +97,11 @@ extension ViewController: EPGDelegate {
     }
 }
 ```
+
+#
+# Finally after getting the EPGResult from the SDK you must make a server to server call to make sure the transaction has been successfully processed.
+#
+
 #
 **Note: EPG SDK only supports Visa, Mastercard, and Amex cards.**
 #
