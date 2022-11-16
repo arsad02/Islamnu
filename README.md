@@ -97,10 +97,8 @@ extension ViewController: EPGDelegate {
     }
 }
 ```
-
 #
-# Finally after getting the EPGResult from the SDK you must make a server to server call to make sure the transaction has been successfully processed.
-#
+**Finally after getting the EPGResult from the SDK you must make a server to server call to make sure the transaction has been successfully processed.**
 
 #
 **Note: EPG SDK only supports Visa, Mastercard, and Amex cards.**
